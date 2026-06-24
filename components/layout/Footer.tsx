@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { MapPin, Phone, Clock, Mail } from "lucide-react";
+import { MapPin, Phone, Clock, Mail, Instagram, Facebook } from "lucide-react";
 
 const treatments = [
   "Low Back Pain & Sciatica",
@@ -72,6 +72,26 @@ export default function Footer() {
                   <MapPin className="h-3.5 w-3.5 text-amber-500" />
                 </span>
                 <span>Sami Tower Block A, 4th Floor,<br />Clinic #411, Near Hayatabad PDA Toll Plaza,<br />Opposite Al-Haram Model Town, Ring Road, Peshawar</span>
+              </div>
+              <div className="mt-4 flex flex-wrap items-center gap-3">
+                <a
+                  href="https://www.instagram.com/tmc_physiotherapist01?igsh=b2F6cXJyZmh5NjZu"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full bg-white/5 px-3.5 py-2 text-sm font-semibold text-zinc-400 transition hover:bg-white/10 hover:text-white"
+                >
+                  <Instagram className="h-4 w-4 text-pink-500" />
+                  Instagram
+                </a>
+                <a
+                  href="https://www.facebook.com/share/19Az4vn6JM/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full bg-white/5 px-3.5 py-2 text-sm font-semibold text-zinc-400 transition hover:bg-white/10 hover:text-white"
+                >
+                  <Facebook className="h-4 w-4 text-blue-500" />
+                  Facebook
+                </a>
               </div>
             </div>
           </div>

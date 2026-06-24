@@ -114,18 +114,18 @@ function ScrollParallaxPortrait() {
       className="relative lg:sticky lg:top-28"
     >
       {/* Card frame */}
-      <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] bg-zinc-100 shadow-[0_28px_70px_rgba(0,0,0,0.18)]">
-        {/* Parallax image — fills card, pinned to left so person always shows */}
+      <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] border border-zinc-200/70 bg-zinc-100 shadow-[0_28px_70px_rgba(0,0,0,0.18)] ring-1 ring-white/30">
+        {/* Parallax image — fills card with centered composition */}
         <motion.div
           style={{ y: imageY }}
-          className="absolute left-0 top-[-8%] h-[116%] w-full"
+          className="absolute inset-0"
         >
           <Image
-            src="/sadiq.png"
-            alt="Dr. Sadeeq Ur Rehman"
+            src="/sadeeq_pic.jpg"
+            alt="Dr. Sadeeq Ur Rehman treating a patient"
             fill
-            className="object-cover object-left-top"
-            style={{ objectPosition: "12% 8%" }}
+            className="object-cover object-center"
+            style={{ objectPosition: "50% 35%" }}
             sizes="(max-width: 768px) 100vw, 45vw"
             priority
           />

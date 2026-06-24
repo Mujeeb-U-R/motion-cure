@@ -44,26 +44,22 @@ export default function ContactPage() {
   });
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
-  const handleSubmit = async (e: FormEvent) => {
+  const whatsappNumber = "923429255379";
+  const whatsappBaseUrl = `https://wa.me/${whatsappNumber}`;
+
+  const buildWhatsappUrl = () => {
+    const text = `Hello The Motion Cure,\n\nMy name is ${formData.name}.\nPhone: ${formData.phone}.\nEmail: ${formData.email}.\nCondition/Service: ${formData.condition || "Not specified"}.\n\nMessage: ${formData.message}`;
+    return `${whatsappBaseUrl}?text=${encodeURIComponent(text)}`;
+  };
+
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     setStatus("sending");
 
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      if (res.ok) {
-        setStatus("success");
-        setFormData({ name: "", email: "", phone: "", condition: "", message: "" });
-      } else {
-        setStatus("error");
-      }
-    } catch {
-      setStatus("error");
-    }
+    const url = buildWhatsappUrl();
+    window.open(url, "_blank");
+    setStatus("success");
+    setFormData({ name: "", email: "", phone: "", condition: "", message: "" });
   };
 
   const handleChange = (
@@ -321,21 +317,12 @@ export default function ContactPage() {
                         whileTap={{ scale: 0.99 }}
                         className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-amber-400 px-6 py-3.5 text-sm font-semibold text-zinc-900 transition-all hover:bg-amber-300 disabled:opacity-60"
                       >
-                        {status === "sending" ? (
-                          <>
-                            <Loader2 className="h-4 w-4 animate-spin" />
-                            Sending...
-                          </>
-                        ) : (
-                          <>
-                            <Send className="h-4 w-4" />
-                            Send Message
-                          </>
-                        )}
+                        <Send className="h-4 w-4" />
+                        Send Message
                       </motion.button>
 
                       <motion.a
-                        href="https://wa.me/923429255379"
+                        href={whatsappBaseUrl}
                         target="_blank"
                         rel="noreferrer"
                         whileHover={{ scale: 1.01 }}
