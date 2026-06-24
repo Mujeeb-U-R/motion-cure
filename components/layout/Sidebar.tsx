@@ -22,7 +22,7 @@ export default function Sidebar() {
       initial={{ opacity: 0, x: 20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.8, delay: 1.2, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed right-5 top-1/2 z-40 -translate-y-1/2 hidden lg:flex flex-col items-center"
+      className="fixed right-5 top-1/3 z-40 -translate-y-1/2 hidden lg:flex flex-col items-center"
     >
       {/* Frosted pill container for always-visible sidebar */}
       <div className="flex flex-col items-center rounded-full border border-zinc-200/80 bg-white/80 px-2.5 py-4 shadow-[0_4px_24px_rgba(0,0,0,0.08)] backdrop-blur-xl">
@@ -169,3 +169,6 @@ export default function Sidebar() {
     </motion.div>
   );
 }
+
+
+
